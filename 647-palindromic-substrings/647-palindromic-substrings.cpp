@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countSubstrings(string& s) {
-       return tabulation(s);
+       return memoization(s);
     }
     
     // 1. recursive
