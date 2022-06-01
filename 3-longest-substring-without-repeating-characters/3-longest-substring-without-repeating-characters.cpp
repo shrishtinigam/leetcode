@@ -9,15 +9,22 @@ public:
 
         int res = 0;
         while (right < s.length()) {
-            char r = s[right];
+            char r = s[right]; // current character
 
-            int index = chars[r];
-            if (index != -1 and index >= left and index < right) {
+            int index = chars[r]; // last time the character appeared in the string
+            
+            // decrease window size from left if the new character is already present within the window
+            if (index != -1 and index >= left) {
                 left = index + 1;
             }
+            
+            // result is max of current window size and max window size up till now
             res = max(res, right - left + 1);
-
+            
+            // save the position at which the character appeared
             chars[r] = right;
+            
+            // increase window size from right
             right++;
         }
         return res;
