@@ -14,7 +14,7 @@ public:
             int index = chars[r]; // last time the character appeared in the string
             
             // decrease window size from left if the new character is already present within the window
-            if (index != -1 and index >= left) {
+            if (index != -1 && index >= left) {
                 left = index + 1;
             }
             
