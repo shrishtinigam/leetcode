@@ -2,13 +2,7 @@ class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k)
     {
-       unordered_set<int> s;
-       
-       if (k <= 0) 
-           return false;
-       // if (k >= nums.size()) 
-           //k = nums.size() - 1;
-       
+       set<int> s;
        for (int i = 0; i < nums.size(); i++)
        {
            if (i > k) 
