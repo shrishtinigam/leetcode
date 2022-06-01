@@ -12,7 +12,7 @@ public:
             char r = s[right];
 
             int index = chars[r];
-            if (index != -1 and index >= left and index < right) {
+            if (index != -1 and index >= left) {
                 left = index + 1;
             }
             res = max(res, right - left + 1);
