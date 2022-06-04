@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> canSeePersonsCount(vector<int>& heights) {
+        
         int n = heights.size();
         vector<int> ans(n);
         stack<int> st;
