@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
-        vector <int> answer;
+        vector <int> answer(temperatures.size());
         int i = temperatures.size() - 1;
         stack <int> pos;
         pos.push(i);
@@ -9,14 +9,10 @@ public:
         {
             while(!pos.empty() and temperatures[pos.top()] <= temperatures[i])
                 pos.pop();
-            if(!pos.empty())
-                answer.push_back(pos.top() - i);
-            else
-                answer.push_back(0);
+            answer[i] = pos.empty() ? 0 : pos.top() - i;
             pos.push(i);
             i--;
         }
-        reverse(answer.begin(), answer.end());
         return answer;
     }
 };
