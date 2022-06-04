@@ -1,6 +1,7 @@
 class Solution {
 public:
     int eraseOverlapIntervals(vector<vector<int>>& I) {
+        
         sort(I.begin(), I.end());
         int res = 0, pre = 0;
         for (int i = 1; i < I.size(); i++) 
