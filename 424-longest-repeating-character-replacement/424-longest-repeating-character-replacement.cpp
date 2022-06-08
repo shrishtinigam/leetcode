@@ -1,6 +1,7 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
+        
         // res is the length of the largest window we can find. 
         // The largest window we can find has this property: res = maxf + k
         // maxf is the max frequency of any character we have seen so far.
