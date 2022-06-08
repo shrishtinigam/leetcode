@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<int> findAnagrams(string s, string p) {
+    vector<int> findAnagrams(string s, string p) 
+    {
         if(s.size() < p.size()) return {};
         vector <int> count_s (26, 0), count_p(26, 0);
         for(int i = 0; i < p.size(); i++)
@@ -13,7 +14,6 @@ public:
         
         if(count_p == count_s)
                 res.push_back(0);
-        
         for(int i = p.size(); i < s.size(); i++)
         {
             count_s[int(s[i-p.size()])-97]--;
