@@ -10,7 +10,6 @@ public:
         bool dp[n][n];
 
         //Initialize with false
-
         memset(dp, 0, sizeof(dp));
 
         //Every Single character is palindrome
