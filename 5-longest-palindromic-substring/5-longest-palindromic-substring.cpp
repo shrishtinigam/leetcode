@@ -1,44 +1,29 @@
 class Solution {
 public:
-    string longestPalindrome(string s) 
-    {
-        int n = s.size();
-        if (n == 0)
-            return "";
-
-        // dp[i][j] will be 'true' if the string from index i to j is a palindrome.
-        bool dp[n][n];
-
-        //Initialize with false
-        memset(dp, 0, sizeof(dp));
-
-        //Every Single character is palindrome
-        for (int i = 0; i < n; i++)
-            dp[i][i] = true;
-
-        string ans = "";
-        ans += s[0];
-
-        for (int i = n - 1; i >= 0; i--)
-        {
-            for (int j = i + 1; j < n; j++)
-            {
-                if (s[i] == s[j])
-                {
-                    //If it is of two character OR if its susbtring is palindrome.
-                    if (j - i == 1 || dp[i + 1][j - 1])
-                    {
-                        //Then it will also a palindrome substring
-                        dp[i][j] = true;
-
-                        //Check for Longest Palindrome substring
-                        if (ans.size() < j - i + 1)
-                            ans = s.substr(i, j - i + 1);
-                    }
-                }
-            }
+    bool ispallin(string ans){
+        int i=0;
+        int j=ans.size()-1;
+        while(i<j){
+            if(ans[i]!=ans[j]) return false;
+            i++;
+            j--;
         }
-        return ans;
+        return true;
+    }
+    string longestPalindrome(string s) {
+     if (s.empty()) return "";
+    if (s.size() == 1) return s;
+    int min_start = 0, max_len = 1;
+    for (int i = 0; i < s.size();) {
+      if (s.size() - i <= max_len / 2) break;
+      int j = i, k = i;
+      while (k < s.size()-1 && s[k+1] == s[k]) ++k; // Skip duplicate characters.
+      i = k+1;
+      while (k < s.size()-1 && j > 0 && s[k + 1] == s[j - 1]) { ++k; --j; } // Expand.
+      int new_len = k - j + 1;
+      if (new_len > max_len) { min_start = j; max_len = new_len; }
+    }
+    return s.substr(min_start, max_len);  
     }
         
 };
