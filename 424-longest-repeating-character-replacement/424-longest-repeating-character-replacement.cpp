@@ -7,7 +7,7 @@ public:
         // maxf is the max frequency of any character we have seen so far.
         int res = 0, maxf = 0;
         unordered_map<int, int> count;
-        for (int i = 0; i < s.length(); ++i) {
+        for (int i = 0; i < s.length(); i++) {
             maxf = max(maxf, ++count[s[i]]);
             if (res - maxf < k)
                 res++;
