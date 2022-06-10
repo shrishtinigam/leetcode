@@ -17,9 +17,9 @@ public:
     {
         if(hashmap.find(val) == hashmap.end())
             return false;
-        int index = hashmap[val];
-        arr[index] = arr[arr.size()-1];
-        hashmap[arr[index]] = index; 
+        int last = arr.back();
+        arr[hashmap[val]] = last;
+        hashmap[last] = hashmap[val];
         arr.pop_back();
         hashmap.erase(val);
         return true;
@@ -28,6 +28,7 @@ public:
     int getRandom() {
         return arr[rand() % arr.size()];
     }
+    
 };
 
 /**
