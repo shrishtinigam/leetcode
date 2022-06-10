@@ -1,36 +1,40 @@
 class RandomizedSet {
-    unordered_map<int ,int> mpp;
-    vector<int> nums;
 public:
     RandomizedSet() {
-        
     }
     
+    unordered_map<int, int> hashmap; // 1st int is the number, 2nd int is the index in vector
+    vector <int> arr;
     bool insert(int val) {
-        if(mpp.find(val) != mpp.end()) return false;
-        nums.push_back(val);
-        mpp[val] = nums.size()-1;
+        if(hashmap.find(val) != hashmap.end())
+            return false;
+        arr.push_back(val);
+        hashmap[val] = arr.size() - 1;
         return true;
     }
     
-    bool remove(int val) {
-        if(mpp.find(val) == mpp.end()) return false;
-        int last = nums.back();
-        nums[mpp[val]] = last;
-        mpp[last] = mpp[val];
-        nums.pop_back();
-        mpp.erase(val);
+    bool remove(int val) 
+    {
+        if(hashmap.find(val) == hashmap.end())
+            return false;
+        int last = arr.back();
+        arr[hashmap[val]] = last;
+        hashmap[last] = hashmap[val];
+        arr.pop_back();
+        hashmap.erase(val);
         return true;
     }
     
     int getRandom() {
-        return nums[rand() % nums.size()];
+        return arr[rand() % arr.size()];
     }
+    
 };
 
-static int noio = []() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 0;
-}();
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet* obj = new RandomizedSet();
+ * bool param_1 = obj->insert(val);
+ * bool param_2 = obj->remove(val);
+ * int param_3 = obj->getRandom();
+ */
