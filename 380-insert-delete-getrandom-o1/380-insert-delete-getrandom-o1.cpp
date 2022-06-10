@@ -2,6 +2,7 @@ class RandomizedSet {
 public:
     RandomizedSet() {
     }
+    
     unordered_map<int, int> hashmap; // 1st int is the number, 2nd int is the index in vector
     vector <int> arr;
     bool insert(int val) {
