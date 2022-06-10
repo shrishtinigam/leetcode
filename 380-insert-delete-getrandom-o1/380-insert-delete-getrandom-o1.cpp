@@ -1,5 +1,6 @@
 class RandomizedSet {
 public:
+    
     RandomizedSet() {
     }
     
