@@ -22,21 +22,16 @@ public:
         this->tail = NULL;
     }
     void delete_node(Node *p){
-        if(p->left != NULL){
+        if(p->left != NULL)
             p->left->right = p->right;
-        }
-        else{
-            head=p->right;
-        }
-        if(p->right!=NULL){
-            p->right->left=p->left;
-            
-        }
-        else{
-            tail=p->left;
-        }
-        p->left=NULL;
-        p->right=NULL;
+        else
+            head = p->right;
+        if(p->right != NULL)
+            p->right->left = p->left;
+        else
+            tail = p -> left;
+        p->left = NULL;
+        p->right = NULL;
     }
     
     void insert(Node *q){
