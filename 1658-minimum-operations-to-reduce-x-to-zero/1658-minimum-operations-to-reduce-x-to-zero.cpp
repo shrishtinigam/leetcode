@@ -23,4 +23,5 @@ public:
         // We take the maximum window length as it returns the minimum operations required.
         return (maxwinlen == -1) ? -1 : nums.size() - maxwinlen;
     }
+    
 };
