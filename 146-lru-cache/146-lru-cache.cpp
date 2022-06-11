@@ -4,27 +4,26 @@ class Node{
     Node *right,*left;
     
     Node(int key,int value){
-        this->key=key;
-        this->value=value;
-        this->left=NULL;
-        this->right=NULL;
+        this->key = key;
+        this->value = value;
+        this->left = NULL;
+        this->right = NULL;
     }
 };
 class LRUCache {
 public:
-    Node *head,*tail;
-    int capacity,size;
-    unordered_map<int,Node *> m;
+    Node *head, *tail;
+    int capacity, size;
+    unordered_map<int, Node *> m;
     LRUCache(int capacity) {
-        this->capacity=capacity;
-        this->size=0;
-        this->head=NULL;
-        this->tail=NULL;
-        
+        this->capacity = capacity;
+        this->size = 0;
+        this->head = NULL;
+        this->tail = NULL;
     }
     void delete_node(Node *p){
-        if(p->left!=NULL){
-            p->left->right=p->right;
+        if(p->left != NULL){
+            p->left->right = p->right;
         }
         else{
             head=p->right;
