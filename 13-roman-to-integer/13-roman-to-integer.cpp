@@ -15,7 +15,7 @@ public:
         int sum = 0;
         for(int i = 0; i < s.size(); i++)
         {
-            if(i < s.size() - 1 and roman_numeral[s[i]] < roman_numeral[s[i + 1]])
+            if(roman_numeral[s[i]] < roman_numeral[s[i + 1]])
             {
                 sum -= roman_numeral[s[i]];
                 continue;
