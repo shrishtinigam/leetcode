@@ -1,9 +1,9 @@
 class Node{
     public:
-    int key,value;
-    Node *right,*left;
+    int key, value;
+    Node *right, *left;
     
-    Node(int key,int value){
+    Node(int key, int value){
         this->key = key;
         this->value = value;
         this->left = NULL;
@@ -11,11 +11,13 @@ class Node{
     }
 };
 class LRUCache {
-public:
+private:
     Node *head, *tail;
     int capacity, size;
     unordered_map<int, Node *> m;
-    LRUCache(int capacity) {
+public:
+    LRUCache(int capacity) 
+    {
         this->capacity = capacity;
         this->size = 0;
         this->head = NULL;
