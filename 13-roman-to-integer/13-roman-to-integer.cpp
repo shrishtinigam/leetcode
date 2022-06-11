@@ -21,7 +21,6 @@ public:
             }
             sum += roman_numeral[s[i]];
         }
-        
         return sum;
     }
 };
