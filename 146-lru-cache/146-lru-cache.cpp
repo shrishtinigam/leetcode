@@ -12,28 +12,28 @@ class Node{
 };
 class LRUCache {
 private:
-    Node *head, *tail;
+    Node *LRU, *MRU;
     int capacity, size;
-    unordered_map<int, Node *> m;
+    unordered_map<int, Node *> hashmap;
 public:
     LRUCache(int capacity) 
     {
         this->capacity = capacity;
         this->size = 0;
-        this->head = NULL;
-        this->tail = NULL;
+        this->LRU = NULL;
+        this->MRU = NULL;
     }
     void remove(Node *p)
     {
         if(p->left != NULL)
             p->left->right = p->right;
         else
-            head = p->right;
+            LRU = p->right;
         
         if(p->right != NULL)
             p->right->left = p->left;
         else
-            tail = p -> left;
+            MRU = p -> left;
         
         p->left = NULL;
         p->right = NULL;
@@ -41,13 +41,13 @@ public:
     
     void insert(Node *q)
     {
-        if (head == NULL)
-            head = tail = q;
+        if (LRU == NULL)
+            LRU = MRU = q;
         else
         {
-            tail->right = q;
-            q->left = tail;
-            tail = q;
+            MRU->right = q;
+            q->left = MRU;
+            MRU = q;
         }
     }
     /*
@@ -57,9 +57,9 @@ public:
     */
     int get(int key) 
     {
-        if (m.find(key) == m.end())
+        if (hashmap.find(key) == hashmap.end())
             return -1;
-        Node *x = m[key];
+        Node *x = hashmap[key];
         remove(x);
         insert(x);
         //insert the node at last
@@ -73,20 +73,20 @@ public:
     */
     void put(int key, int value) 
     {
-        Node *y = new Node(key,value);
-        if(m.find(key)!=m.end())
+        if(hashmap.find(key) != hashmap.end()) // if key is already present
         {
-            m[key]->value = value;
-            remove(m[key]);
-            insert(m[key]);
+            hashmap[key]->value = value; // update value
+            remove(hashmap[key]);
+            insert(hashmap[key]);
         }
         else
         {
-            m[key] = y;
+            Node *y = new Node(key, value);
+            hashmap[key] = y;
             if(size == capacity)
             {
-                m.erase(head->key);//remove the least recently used value from map
-                remove(head);
+                hashmap.erase(LRU->key); //remove the least recently used value from map
+                remove(LRU);
                 insert(y);
             }
             else
