@@ -3,7 +3,6 @@ public:
     int romanToInt(string s) 
     {
         unordered_map <char, int> roman_numeral;
-        
         roman_numeral['I'] = 1;
         roman_numeral['V'] = 5;
         roman_numeral['X'] = 10;
