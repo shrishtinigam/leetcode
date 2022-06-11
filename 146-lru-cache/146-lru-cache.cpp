@@ -21,7 +21,7 @@ public:
         this->head = NULL;
         this->tail = NULL;
     }
-    void delete_node(Node *p)
+    void remove(Node *p)
     {
         if(p->left != NULL)
             p->left->right = p->right;
@@ -58,7 +58,7 @@ public:
         if (m.find(key) == m.end())
             return -1;
         Node *x = m[key];
-        delete_node(x);
+        remove(x);
         insert(x);
         //insert the node at last
         return x->value;
@@ -75,21 +75,21 @@ public:
         if(m.find(key)!=m.end())
         {
             m[key]->value = value;
-            delete_node(m[key]);
+            remove(m[key]);
             insert(m[key]);
         }
         else
         {
-            m[key]=y;
-            if(size==capacity)
+            m[key] = y;
+            if(size == capacity)
             {
                 m.erase(head->key);//remove the least recently used value from map
-                delete_node(head);
+                remove(head);
                 insert(y);
             }
             else
             {
-                size+=1;//size of window increase
+                size++;//size of window increase
                 insert(y);
             }
         }
