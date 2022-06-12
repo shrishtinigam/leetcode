@@ -2,16 +2,15 @@ class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) 
     { 
-        // 97 = int('a')
-        int freq[26] = {0};
-        for(int i = 0; i < magazine.size(); i++)
-            freq[int(magazine[i]) - 97]++;
+        int hash[26] = {0};
+        for(char ch : magazine) 
+            hash[ch - 'a']++;
         
-        for(int i = 0; i < ransomNote.size(); i++)
+        for(char ch : ransomNote) 
         {
-            if(freq[int(ransomNote[i]) - 97] == 0)
+            if(hash[ch - 'a'] == 0) 
                 return false;
-            freq[int(ransomNote[i]) - 97]--;
+            hash[ch - 'a']--;
         }
         return true;
     }
