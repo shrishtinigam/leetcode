@@ -1,7 +1,20 @@
 
 class Solution {
 public:
-    
+    vector<int> twoSum(vector<int>& nums, int target) 
+        {
+            unordered_map<int, int> indices;
+            for (int i = 0; i < nums.size(); i++) {
+                if (indices.find(target - nums[i]) != indices.end()) {
+                    return {indices[target - nums[i]], i};
+                }
+                indices[nums[i]] = i;
+            }
+            return {};
+        }
+};
+
+/*
         int linearsearch(vector<int> nums, int start, int x)
         {
             for(int i = start; i < nums.size(); i++)
@@ -35,4 +48,4 @@ public:
             vector <int> ans = {a_i, b_i};
             return ans;
         }
-};
+*/
