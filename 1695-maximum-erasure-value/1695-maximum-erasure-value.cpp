@@ -1,6 +1,7 @@
 class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) 
+        
     {
         unordered_map <int, bool> umap;
         int max_res = 0;
