@@ -12,6 +12,7 @@ public:
         vector<int> x = nums;        
         sort(x.begin(), x.end());
         int a = 0, b = x.size() - 1;
+        
         while(a < b)
         {
             if(x[a] + x[b] == target)
