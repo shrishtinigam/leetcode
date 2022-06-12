@@ -31,6 +31,5 @@ public:
             b_i = linearsearch(nums, 0, b);
         vector <int> ans = {a_i, b_i};
         return ans;
-        return ans;
     }
 };
