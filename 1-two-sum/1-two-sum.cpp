@@ -1,6 +1,7 @@
 
 class Solution {
 public:
+    
         int linearsearch(vector<int> nums, int start, int x)
         {
             for(int i = start; i < nums.size(); i++)
