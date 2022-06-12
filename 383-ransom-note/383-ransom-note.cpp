@@ -8,11 +8,11 @@ public:
             freq[int(magazine[i]) - 97]++;
         
         for(int i = 0; i < ransomNote.size(); i++)
-            freq[int(ransomNote[i]) - 97]--;
-        
-        for(int i = 0; i < 26; i++)
-            if(freq[i] < 0)
+        {
+            if(freq[int(ransomNote[i]) - 97] == 0)
                 return false;
+            freq[int(ransomNote[i]) - 97]--;
+        }
         return true;
     }
 };
