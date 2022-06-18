@@ -81,7 +81,7 @@ public:
         }
         else
         {
-            Node *y = new Node(key, value);
+            Node * y = new Node(key, value);
             hashmap[key] = y;
             if(size == capacity)
             {
