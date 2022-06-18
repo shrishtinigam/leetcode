@@ -31,6 +31,7 @@ public:
         
         for (int i = 0 ; i < inorder.size(); i++) 
             um[inorder[i]] = i;
+        
         pre = preorder;
         
         build(root, 0, inorder.size()-1);
