@@ -1,8 +1,7 @@
 class Solution {
 public:
     
-    bool isValidSudoku(vector<vector<char>>& board) 
-    {
+    bool isValidSudoku(vector<vector<char>>& board) {
         vector<set<int>> rows(9), cols(9), blocks(9);
         
         for (int i = 0; i < 9; i++) 
