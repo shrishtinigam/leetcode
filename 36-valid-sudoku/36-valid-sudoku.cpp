@@ -1,8 +1,10 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
+        
         int rows = board.size(), cols = board[0].size();
         int m[9] = {0};
+        
         // Rows
         for(int i = 0; i < rows; i++)
         {
