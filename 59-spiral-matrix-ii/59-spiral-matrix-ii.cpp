@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<vector<int>> generateMatrix(int n) {
+    vector<vector<int>> generateMatrix(int n) 
+    {
         int m = n;
         int left = 0, right = m - 1, bottom = n - 1, top = 0;
         int direction = 1;
