@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        
         int n = matrix.size();
         int m = matrix[0].size();
         int left = 0, right = m - 1, bottom = n - 1, top = 0;
@@ -16,7 +15,6 @@ public:
                 direction = 2;
                 top++;
             }
-            
             else if(direction == 2) // downwards
             {
                 for(int i = top; i <= bottom; i++) 
@@ -24,7 +22,6 @@ public:
                 direction = 3;
                 right--;
             }
-            
             else if(direction == 3) // towards left
             {
                 for(int i = right; i >= left; i--) 
@@ -32,7 +29,6 @@ public:
                 direction = 4;
                 bottom--;
             }
-            
             else if(direction == 4) // upwards
             {
                 for(int i = bottom; i >= top; i--) 
