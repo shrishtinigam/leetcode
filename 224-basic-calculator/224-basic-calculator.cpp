@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int calculate(string s) 
-    {
+    
+    int calculate(string s) {
         int sum = 0;
         int sign = 1;
         int j = 0;
