@@ -1,5 +1,29 @@
 class Solution {
 public:
+
+    bool isValid(string s) {
+        stack <char> parentheses;
+        unordered_map <char,char> mp;
+        mp['}'] = '{';
+        mp[']'] = '[';
+        mp[')'] = '(';
+        for(int i = 0; i < s.size(); i++)
+        {
+            if(s[i] == '{' or s[i] == '[' or s[i] == '(')
+                parentheses.push(s[i]);
+            else
+                if(parentheses.empty() or mp[s[i]] != parentheses.top())
+                    return false;
+                else
+                    parentheses.pop();
+        }
+        if(parentheses.empty())
+            return true;
+        return false;
+    }
+};
+
+/*
     bool match(char a, char b)
     {
         vector <char> arr1 = {'{', '[', '('};        
@@ -11,20 +35,4 @@ public:
         }
         return false;
     }
-    bool isValid(string s) {
-        stack <char> parentheses;
-        for(int i = 0; i < s.size(); i++)
-        {
-            if(s[i] == '{' or s[i] == '[' or s[i] == '(')
-                parentheses.push(s[i]);
-            else
-                if(parentheses.empty() or !match(parentheses.top(), s[i]))
-                    return false;
-                else
-                    parentheses.pop();
-        }
-        if(parentheses.empty())
-            return true;
-        return false;
-    }
-};
+*/
