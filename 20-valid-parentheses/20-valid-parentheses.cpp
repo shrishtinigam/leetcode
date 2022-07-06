@@ -26,4 +26,20 @@ public:
         }
         return false;
     }
+    bool isValid(string s) {
+        stack <char> parentheses;
+        for(int i = 0; i < s.size(); i++)
+        {
+            if(s[i] == '{' or s[i] == '[' or s[i] == '(')
+                parentheses.push(s[i]);
+            else
+                if(parentheses.empty() or !match(parentheses.top(), s[i]))
+                    return false;
+                else
+                    parentheses.pop();
+        }
+        if(parentheses.empty())
+            return true;
+        return false;
+    }
 */
