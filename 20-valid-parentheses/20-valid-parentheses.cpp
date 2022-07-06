@@ -2,24 +2,15 @@ class Solution {
 public:
 
     bool isValid(string s) {
-        stack <char> parentheses;
-        unordered_map <char,char> mp;
-        mp['}'] = '{';
-        mp[']'] = '[';
-        mp[')'] = '(';
-        for(int i = 0; i < s.size(); i++)
-        {
-            if(s[i] == '{' or s[i] == '[' or s[i] == '(')
-                parentheses.push(s[i]);
-            else
-                if(parentheses.empty() or mp[s[i]] != parentheses.top())
-                    return false;
+        stack<char> st; 
+        for(auto i:s)  
+            if(i=='(' or i=='{' or i=='[') 
+                st.push(i);  
+            else  
+                if(st.empty() or (st.top()=='(' and i!=')') or (st.top()=='{' and i!='}') or (st.top()=='[' and i!=']'))                    return false;
                 else
-                    parentheses.pop();
-        }
-        if(parentheses.empty())
-            return true;
-        return false;
+                    st.pop();  
+        return st.empty();  
     }
 };
 
