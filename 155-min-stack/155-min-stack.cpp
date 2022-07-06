@@ -1,5 +1,6 @@
 class MinStack {
 public:
+    
     int m = INT_MAX;
     stack <int> s1;
     stack <int> s2;
