@@ -1,13 +1,11 @@
 class Solution {
 public:
-    
     int calculate(string s) 
     {
         int sum = 0;
         int sign = 1;
         int j = 0;
         stack<int> st;
-        
         while(j < s.length())
         { 
             if(s[j] == '+')
@@ -41,7 +39,6 @@ public:
             }
             j++;
         }
-        
         return sum;
     }
 };
