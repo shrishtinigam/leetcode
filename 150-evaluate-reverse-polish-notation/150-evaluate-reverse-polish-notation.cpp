@@ -1,6 +1,7 @@
 class Solution {
 public:
-int evalRPN(vector<string>& tokens) {
+int evalRPN(vector<string>& tokens) 
+{
     stack<int> stn;
     for(auto s:tokens) {
         if(s.size()>1 || isdigit(s[0])) stn.push(stoi(s));
