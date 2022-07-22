@@ -1,5 +1,6 @@
 class Solution {
 public:
+    
     vector<vector<int>> insert(vector<vector<int>>& I, vector<int>& newInterval) 
     {
         auto it = lower_bound(I.begin(), I.end(), newInterval);
