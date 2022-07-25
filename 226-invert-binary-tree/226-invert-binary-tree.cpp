@@ -9,8 +9,6 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
-
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
@@ -22,8 +20,6 @@ public:
         return root;
     }
 };
-
-
 /*
 TreeNode* invertTree(TreeNode* root) {
     std::stack<TreeNode*> stk;
