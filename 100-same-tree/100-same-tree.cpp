@@ -20,7 +20,6 @@ public:
             return true;
         if(p->val != q->val)
             return false;
-        
         if(isSameTree(p->right, q->right) and isSameTree(p->left, q->left))
             return true;
         return false;
