@@ -12,7 +12,6 @@
 class Solution {
 public:
     int curMax = 0;
-    
     int maxPathSumUtil(TreeNode * root){
         if(root == NULL)
             return 0;
@@ -22,7 +21,6 @@ public:
         curMax = max(curMax, root->val + leftMax + rightMax);
         return root->val + max(leftMax, rightMax);
     }
-    
     int maxPathSum(TreeNode * root){
         if(root == NULL)
             return 0;
