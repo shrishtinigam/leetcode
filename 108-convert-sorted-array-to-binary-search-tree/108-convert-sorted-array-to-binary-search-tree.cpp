@@ -22,11 +22,11 @@ public:
     TreeNode* buildBST(iter b, iter e) {
         if (b >= e) return nullptr;
         
-        iter m = b + (e - b) / 2;
+        iter m = b + (e - b) / 2; // calculate the middle
         
-        TreeNode* node = new TreeNode(*m);
-        node->left = buildBST(b, m);
-        node->right = buildBST(m + 1, e);
+        TreeNode* node = new TreeNode(*m); // create a new node and set its val to the middle element 
+        node->left = buildBST(b, m); // build a left subtree with all elements lesser than middle element
+        node->right = buildBST(m + 1, e); // build a right subtree with all the elements greater than the middle element 
         
         return node;
     }
