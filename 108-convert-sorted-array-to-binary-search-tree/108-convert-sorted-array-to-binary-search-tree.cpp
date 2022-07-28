@@ -12,7 +12,8 @@
 class Solution {
 public:
     using iter = vector<int>::const_iterator;
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
+    TreeNode* sortedArrayToBST(vector<int>& nums) 
+    {
         if (nums.empty()) return nullptr;
         
         return buildBST(nums.begin(), nums.end());
