@@ -18,7 +18,6 @@ public:
         
         while (Q.empty() != true)
         {
-            
             vector <int> level;
             int n = Q.size();
             for(int i = 0; i < n; i++)
