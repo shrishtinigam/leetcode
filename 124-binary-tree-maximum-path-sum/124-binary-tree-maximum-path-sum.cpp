@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-    
     int curMax = 0;
     
     int maxPathSumUtil(TreeNode * root){
