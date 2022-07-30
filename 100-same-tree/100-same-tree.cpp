@@ -10,11 +10,11 @@
  * };
  */
 
-
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) 
     {
+        
         if(!p and !q)
             return true;
 
@@ -27,5 +27,6 @@ public:
         if(isSameTree(p->right, q->right) and isSameTree(p->left, q->left))
             return true;
         return false;
+        
     }
 };
