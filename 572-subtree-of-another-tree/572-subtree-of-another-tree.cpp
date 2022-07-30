@@ -27,8 +27,8 @@ public:
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
         if((root != NULL and subRoot == NULL) or (root == NULL and subRoot != NULL))
             return false;
-        if(root == NULL and subRoot == NULL)
-            return true;
+        //if(root == NULL and subRoot == NULL)
+            //return true;
         
         if(root->val == subRoot->val and isSameTree(root, subRoot))
             return true;
