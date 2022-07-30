@@ -30,8 +30,7 @@ public:
     }
     
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        //if(!root and !subRoot)
-            //return true;
+
         if(!root or !subRoot)
             return false;
 
