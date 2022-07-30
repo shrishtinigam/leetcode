@@ -15,19 +15,24 @@ public:
     
     bool isSameTree(TreeNode* p, TreeNode* q) 
     {
-        if((p != NULL and q == NULL) or (p == NULL and q != NULL))
-            return false;
-        if(p == NULL and q == NULL)
+        if(!p and !q)
             return true;
+
+        if(!p or !q)
+            return false;
+        
         if(p->val != q->val)
             return false;
+           
         if(isSameTree(p->right, q->right) and isSameTree(p->left, q->left))
             return true;
         return false;
     }
     
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if((root != NULL and subRoot == NULL) or (root == NULL and subRoot != NULL))
+        //if(!root and !subRoot)
+            //return true;
+        if(!root or !subRoot)
             return false;
 
         if(root->val == subRoot->val and isSameTree(root, subRoot))
