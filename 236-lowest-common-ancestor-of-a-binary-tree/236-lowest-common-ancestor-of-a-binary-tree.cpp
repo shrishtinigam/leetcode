@@ -13,7 +13,7 @@
 class Solution {
 public:
     
-    // Finding the path in an array by dfs and backtracking
+    // Finding the path from root to node and storing it in a vector (by dfs and backtracking)
     bool pathFinder(TreeNode* root, TreeNode* p, vector <TreeNode*> * result){
         if(!root)
             return false;
@@ -26,6 +26,7 @@ public:
         return false; 
     }
     
+    // Finding the Lowest Common Ancestor using the paths
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q){
         vector <TreeNode*> pPath, qPath = {};
         pathFinder(root, p, &pPath);
