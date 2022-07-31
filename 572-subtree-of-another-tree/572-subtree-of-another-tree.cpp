@@ -9,8 +9,10 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
+    
     bool isSameTree(TreeNode* p, TreeNode* q) 
     {
         if(!p or !q)
@@ -21,6 +23,7 @@ public:
         
         return isSameTree(p->right, q->right) and isSameTree(p->left, q->left);
     }
+    
     bool isSubtree(TreeNode* root, TreeNode* subRoot) 
     {
         if(!root)
