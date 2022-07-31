@@ -25,7 +25,7 @@ public:
     {
         if(!root)
             return false;
-        
+        // Only checks isSameTree if root and subRoot value are the same
         if(root->val == subRoot->val and isSameTree(root, subRoot))
             return true;
         
