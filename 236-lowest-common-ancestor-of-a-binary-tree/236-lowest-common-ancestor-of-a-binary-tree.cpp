@@ -47,10 +47,12 @@ public:
 };
 */
 
+
 /* Method - 2 */
 /* TC - O(n) */
 /* SC - O(1) */
 /* Recursion - The node receiving TRUE from both children is the LCA */
+
 class Solution {
 public:
    
