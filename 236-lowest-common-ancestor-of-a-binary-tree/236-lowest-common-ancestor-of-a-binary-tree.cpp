@@ -9,7 +9,11 @@
  */
 
 /* Method - 1 */
+/* TC - O(n)*/
+/* SC - O(h = worst case O(n) -> (not sure) */
+
 /* Find root to P path and root to Q path. The last common node is LCA */
+/*
 class Solution {
 public:
     
@@ -41,12 +45,28 @@ public:
         return pPath[i-1];
     }
 };
+*/
 
-/*
+/* Method - 2 */
+/* TC - O(n) */
+/* SC - O(1) */
+/* Recursion - The node receiving TRUE from both children is the LCA */
 class Solution {
 public:
    
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-       
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) 
+    {
+        if(root==NULL) 
+            return NULL;
+        if(root == p or root == q)
+           return root;
+        
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+
+        if(left and right)
+            return root;
+        
+        return left == NULL? right : left;
     }
-};*/
+};
