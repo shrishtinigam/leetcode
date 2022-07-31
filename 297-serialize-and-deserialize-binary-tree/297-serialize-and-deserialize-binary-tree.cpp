@@ -45,7 +45,6 @@ public:
                 else
                     x = (x * pow(10, d)) + (int(s[i] - '0'));
             }
-            //cout << x << "\n";
             i++;
         }
         return v;
@@ -68,7 +67,6 @@ public:
     string serialize(TreeNode* root) {
         string s;
         Preorder(root, &s);
-        //cout << s;
         s.pop_back();
         return s;
     }
@@ -88,9 +86,6 @@ public:
     
     TreeNode* deserialize(string data) {
         vector<int> v = stringToArray(data);
-        //for(int i = 0; i < v.size(); i++){
-            //cout << v[i] << " ";
-        //}
         int i = 0;
         TreeNode* result = buildTree(v, &i);
         return result;
