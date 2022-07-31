@@ -7,6 +7,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
 class Codec {
 public:
     // Encodes a tree to a single string.
@@ -38,10 +39,6 @@ private:
         return node;
     }
 };
-
-
-
-
 
 // Your Codec object will be instantiated and called as such:
 // Codec ser, deser;
