@@ -7,7 +7,6 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-
 class Codec {
 public:
     // Encodes a tree to a single string.
@@ -21,6 +20,7 @@ public:
         istringstream ss(data);
         return buildTree(ss);
     }
+    
     
 private:
     TreeNode* buildTree(istringstream& ss)
@@ -38,6 +38,8 @@ private:
         return node;
     }
 };
+
+
 
 
 
