@@ -8,7 +8,8 @@
  */
 class Solution {
 public:
-    bool hasCycle(ListNode *head) {
+    bool hasCycle(ListNode *head) 
+    {
         ListNode* tortoise = head, *hare = head;
         while(tortoise != NULL and hare != NULL){
             tortoise = tortoise->next;
