@@ -13,6 +13,7 @@ public:
     void reorderList(ListNode* head) {
         
         // Finding the middle and end of the linked list using fast and slow pointers
+        
         ListNode* slow = head;
         ListNode* fast = head->next;
         while(fast and fast->next){
@@ -21,9 +22,11 @@ public:
         }
         
         // Reverse the second half
+        
         ListNode * second = slow->next;
         ListNode * prev = NULL;
         slow->next = NULL; // cutting off the first half of the list from the second half
+        
         while(second){
             ListNode * temp = second->next;
             second->next = prev;
@@ -32,6 +35,7 @@ public:
         }
         
         // Merge two halves
+        
         ListNode * first = head;
         second = prev;
         while(second){
