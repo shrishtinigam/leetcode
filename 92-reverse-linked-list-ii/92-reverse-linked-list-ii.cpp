@@ -36,39 +36,3 @@ public:
         return temp2;
     }
 };
-
-/*
-        if(head->next == NULL)
-            return head;
-        ListNode * cur = head;
-        left--;        
-        left--;
-        for(int i = 0; i < left; i++){
-            cur = cur->next;
-        }
-        cout << cur->val<<"\n";
-        
-        int count = left;
-        if(left+2 == 1)
-            count = 0;
-        ListNode * ptr = cur;
-        ListNode * ptr2 = cur->next;
-        ListNode* prev = NULL; 
-        ListNode * temp;
-        while(count < right){
-            temp = cur->next;
-            cur->next = prev;
-            prev = cur;
-            cur = temp;
-            count++;
-        }
-        cout<<prev->val<<"\n";        
-        cout<<ptr->val<<"\n";
-        cout<<ptr2->val<<"\n";
-
-        /*
-        //ListNode * x = ptr->next;
-        ptr->next = prev;
-        ptr2->next = cur;
-        return head;
-*/
