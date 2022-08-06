@@ -31,7 +31,9 @@ public:
         leftprev->next->next = cur;
         leftprev->next = prev;
         
-        return dummy->next;
+        ListNode* temp2 = dummy->next;
+        delete dummy;
+        return temp2;
     }
 };
 
