@@ -9,10 +9,65 @@
  * };
  */
 
+
+class Solution {
+    struct heapNode{
+        ListNode * curr;
+        int idx;
+        heapNode(ListNode*a, int b){
+            curr = a;
+            idx = b;
+        }
+    };
+    struct compare{
+        bool operator()(heapNode a, heapNode b){
+            return a.curr->val > b.curr->val; // greater function
+        }
+    };
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        int k = lists.size();
+        if(k == 0)
+            return NULL;
+        priority_queue<heapNode, vector<heapNode>, compare> heap;
+        vector <ListNode*> ptr(k);
+        for(int i = 0; i < k; i++){
+            ptr[i] = lists[i];
+            if(lists[i] != NULL)
+                heap.push(heapNode(lists[i],i));
+        }
+        
+        if(heap.empty())
+            return NULL;
+        
+        ListNode * head, *tail;
+        head = tail = heap.top().curr;
+        int idx = heap.top().idx;
+        heap.pop();
+        
+        ptr[idx] = ptr[idx]->next;
+        if(ptr[idx])
+            heap.push(heapNode(ptr[idx], idx));
+        
+        while(!heap.empty()){
+            ListNode * temp = heap.top().curr;
+            idx = heap.top().idx;
+            heap.pop();
+            
+            tail->next = temp;
+            tail = tail->next;
+            ptr[idx] = ptr[idx]->next;
+            
+            if(ptr[idx])
+                heap.push(heapNode(ptr[idx], idx));
+        }
+        
+        return head;
+    }
+};
+
 /*
 Method - 1 Divide and Conquer
-
-*/
 
 class Solution {
 public:
@@ -55,3 +110,4 @@ public:
         return temp->next;
     }
 };
+*/
