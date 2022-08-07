@@ -13,6 +13,7 @@
 Method - 1 Divide and Conquer
 
 */
+
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
