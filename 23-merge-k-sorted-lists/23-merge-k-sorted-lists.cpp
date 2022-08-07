@@ -8,7 +8,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
+/* Method 2 - Using a min heap
+*/
 
 class Solution {
     struct heapNode{
@@ -30,25 +31,32 @@ public:
         if(k == 0)
             return NULL;
         priority_queue<heapNode, vector<heapNode>, compare> heap;
-        vector <ListNode*> ptr(k);
+        vector <ListNode*> ptr(k); // Current Node points for all the lists 
+        
+        // Build a minheap and current node pointer vector using the first node of all the k sorted lists
         for(int i = 0; i < k; i++){
             ptr[i] = lists[i];
             if(lists[i] != NULL)
                 heap.push(heapNode(lists[i],i));
         }
         
+        // If all lists were empty
         if(heap.empty())
             return NULL;
         
+        // Head will point to the start of the list. Tail will be updated each time.
+        // Inserting the first element
         ListNode * head, *tail;
         head = tail = heap.top().curr;
         int idx = heap.top().idx;
         heap.pop();
-        
+        // Moving the current pointer ahead and adding the next element into heap if its not NULL 
         ptr[idx] = ptr[idx]->next;
         if(ptr[idx])
             heap.push(heapNode(ptr[idx], idx));
         
+        
+        // Doing the above steps until the heap is empty
         while(!heap.empty()){
             ListNode * temp = heap.top().curr;
             idx = heap.top().idx;
