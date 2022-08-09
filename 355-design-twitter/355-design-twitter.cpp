@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/design-twitter/discuss/82916/C%2B%2B-solution-with-max-heap
 class Twitter {
 private:    
    unordered_map<int, set<int>> followMap;
