@@ -10,7 +10,9 @@
  * };
  */
 
-// O(n)
+
+// TC: O(n)
+
 class Solution {
 public:
       bool isValidBST(TreeNode* root) {
