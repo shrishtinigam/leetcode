@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    
+    /*
     ListNode* swapPairs(ListNode* head) {
         if(head == NULL)
             return NULL;
@@ -22,25 +22,32 @@ public:
         next->next = head;
         
         return next;
-    }/*
+    }
+    */
+    
     ListNode* swapPairs(ListNode* head) {
-        if(!head) return head;
+        if(!head) 
+            return head;
         ListNode* newHead = new ListNode(-1);
         ListNode* prev = newHead;
         ListNode* cur = head;
-        while (cur){
-            if (!cur->next) {
+        while (cur)
+        {
+            if (!cur->next) 
+            {
                 prev->next = cur;
                 cur = cur->next;
-            }else{
+            }
+            else
+            {
                 ListNode* temp = cur->next->next;
                 prev->next = cur->next; prev = prev->next;
                 prev->next = cur; prev = prev->next;
-                prev->next = nullptr;
+                prev->next = NULL;
                 cur = temp;
             }
         }
         return newHead->next;
-    }*/
+    }
 
 };
