@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    /*
+    /* Recursive Solution
     ListNode* swapPairs(ListNode* head) {
         if(head == NULL)
             return NULL;
@@ -25,7 +25,9 @@ public:
     }
     */
     
-    ListNode* swapPairs(ListNode* head) {
+    /* Iterative Solution */
+    ListNode* swapPairs(ListNode* head) 
+    {
         if(!head) 
             return head;
         ListNode* newHead = new ListNode(-1);
@@ -41,8 +43,10 @@ public:
             else
             {
                 ListNode* temp = cur->next->next;
-                prev->next = cur->next; prev = prev->next;
-                prev->next = cur; prev = prev->next;
+                prev->next = cur->next; 
+                prev = prev->next;
+                prev->next = cur; 
+                prev = prev->next;
                 prev->next = NULL;
                 cur = temp;
             }
