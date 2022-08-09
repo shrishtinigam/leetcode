@@ -16,18 +16,27 @@ void postTweet(int userId, int tweetId) {
     tweetMap[userId].push_back({time++, tweetId});
 }
 
+    
 /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+
 Can be made better if we use the "k sorted lists optimum pointer based addition to heap" method.
 */
+    
 vector<int> getNewsFeed(int userId) {
+    
     priority_queue<pair<int, int>> maxHeap; 
+    // Adding tweets of the user itself to heap
     for (auto it = tweetMap[userId].begin(); it != tweetMap[userId].end(); ++it)
         maxHeap.push(*it);
-    for (auto it1 = followMap[userId].begin(); it1 != followMap[userId].end(); ++it1){
+    
+    for (auto it1 = followMap[userId].begin(); it1 != followMap[userId].end(); ++it1)
+    {
+        // Adding tweets of the followers to the heap
         int usr = *it1;
         for (auto it2 = tweetMap[usr].begin(); it2 != tweetMap[usr].end(); ++it2)
             maxHeap.push(*it2);
-    }   
+    } 
+    
     vector<int> recentTweets;
     while(maxHeap.size()>0) {
         recentTweets.push_back(maxHeap.top().second);
