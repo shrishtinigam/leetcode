@@ -11,8 +11,10 @@
  */
 
 
+
 class Solution {
 public:
+    
     int kthSmallest(TreeNode* root, int k) {
         vector <int> v;
         Inorder(root, v, k);
