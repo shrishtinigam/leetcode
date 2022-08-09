@@ -9,9 +9,6 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
-
-
 class Solution {
 public:
     
@@ -27,6 +24,8 @@ public:
             return;
         Inorder(root->left, v, k);
         v.push_back(root->val);
+        if(v.size() > k)
+            return;
         Inorder(root->right, v, k);
     }
 };
