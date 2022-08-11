@@ -50,7 +50,7 @@ public:
 
 /* Method - 2 */
 /* TC - O(n) */
-/* SC - O(1) */
+/* SC - O(n) */
 /* Recursion - The node receiving TRUE from both children is the LCA */
 
 class Solution {
