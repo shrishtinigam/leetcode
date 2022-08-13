@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
     
@@ -17,6 +18,7 @@ public:
         Inorder(root, v, k);
         return v[k-1];
     }
+    
     void Inorder(TreeNode* root, vector<int> &v, int &k){
         if(!root)
             return;
@@ -26,4 +28,5 @@ public:
         v.push_back(root->val);
         Inorder(root->right, v, k);
     }
+    
 };
