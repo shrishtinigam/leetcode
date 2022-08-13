@@ -30,3 +30,15 @@ public:
     }
     
 };
+
+/* ALSO WORKS
+void Inorder(TreeNode* root, vector<int> &v, int &k){
+        if(!root)
+            return;
+        Inorder(root->left, v, k);
+        v.push_back(root->val);
+        if(v.size() > k)
+            return;
+        Inorder(root->right, v, k);
+    }
+*/
