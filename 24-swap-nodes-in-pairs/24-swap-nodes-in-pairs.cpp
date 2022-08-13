@@ -24,8 +24,6 @@ public:
         return next;
     }
     */
-    
-    
     /* Iterative Solution */
     ListNode* swapPairs(ListNode* head) 
     {
