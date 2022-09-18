@@ -9,6 +9,33 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+class Solution {
+public:
+    TreeNode* reverseOddLevels(TreeNode* root) {
+        int level = 0; 
+        queue<TreeNode*> q; 
+        q.push(root); 
+        while (q.size()) {
+            vector<TreeNode*> vals; 
+            for (int sz = q.size(); sz; --sz) {
+                TreeNode* node = q.front(); q.pop(); 
+                vals.push_back(node); 
+                if (node->left) q.push(node->left); 
+                if (node->right) q.push(node->right); 
+            }
+            if (level&1) {
+                for (int i = 0, n = vals.size(); i < n/2; ++i) {
+                    swap(vals[i]->val, vals[n-1-i]->val); 
+                }
+            }
+            level ^= 1; 
+        }
+        return root; 
+    }
+};
+
+/*
 class Solution {
 public:
 
@@ -49,3 +76,4 @@ public:
         return root;
     }
 };
+*/
