@@ -27,8 +27,7 @@ class Solution{
 	   }
 	   int max_s1 = INT_MIN;
 	   for(int i = 0; i <= sum/2; i++){
-	       if(dp[n][i] == true)
-	            if(max_s1 < i)
+	       if(dp[n][i] == true and max_s1 < i)
 	                max_s1 = i;
 	   }
 	   return (sum - 2*max_s1);
