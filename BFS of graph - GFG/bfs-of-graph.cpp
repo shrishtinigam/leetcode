@@ -6,9 +6,9 @@ using namespace std;
 class Solution {
   public:
     // Function to return Breadth First Traversal of given graph.
-    vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+    vector<int> bfsOfGraph(int n, vector<int> adj[]) {
         // boolean list to mark all the vertices as not visited.
-        vector<bool> vis(V, false);
+        vector<bool> vis(n, false);
         int s = 0;
 
         // initially we mark first vertex as visited(true).
