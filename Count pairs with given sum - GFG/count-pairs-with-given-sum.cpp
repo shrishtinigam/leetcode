@@ -16,10 +16,10 @@ public:
             x = k - arr[i];
      
             // Lower bound from i+1
-            int y = lower_bound(arr + i + 1, arr + n, x) - arr;
+            y = lower_bound(arr + i + 1, arr + n, x) - arr;
      
             // Upper bound from i+1
-            int z = upper_bound(arr + i + 1, arr + n, x) - arr;
+            z = upper_bound(arr + i + 1, arr + n, x) - arr;
             c += z - y;
         }
         return c;
