@@ -1,0 +1,71 @@
+// Last updated: 8/30/2025, 8:20:57 PM
+class Solution {
+    
+public:
+    int firstMissingPositive(vector<int>& nums) 
+    {
+        int n = nums.size();
+        for(int i = 0; i < n; i++)
+        {
+            if(nums[i] < 0)
+                nums[i] = 0;
+        }
+        
+        for(int i = 0; i < n; i++)
+        {
+            int val = abs(nums[i]);
+            if(val <= n and val >= 1)
+            {
+                val--;
+                if(nums[val] > 0)
+                    nums[val] = (-1) * nums[val];
+                else if(nums[val] == 0)
+                    nums[val] = (-1) * (n + 1);
+            }
+        }
+        
+        for(int i = 0; i < n; i++)
+        {
+            if(nums[i] >= 0)
+                return i + 1;     
+        }
+        return n + 1;    
+    }
+};
+
+
+/*
+class Solution {
+    
+public:
+    int firstMissingPositive(vector<int>& nums) 
+    {
+        int n = nums.size();
+        for(int i = 0; i < n; i++)
+        {
+            if(nums[i] < 0)
+                nums[i] = 0;
+        }
+        
+        for(int i = 0; i < n; i++)
+        {
+            int val = abs(nums[i]);
+            if(val <= n and val >= 1)
+            {
+                val--;
+                if(nums[val] > 0)
+                    nums[val] = (-1) * nums[val];
+                else if(nums[val] == 0)
+                    nums[val] = (-1) * (n + 1);
+            }
+        }
+        
+        for(int i = 0; i < n; i++)
+        {
+            if(nums[i] >= 0)
+                return i + 1;     
+        }
+        return n + 1;    
+    }
+};
+*/
