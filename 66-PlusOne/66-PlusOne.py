@@ -1,12 +1,10 @@
-# Last updated: 8/31/2025, 7:29:34 PM
+# Last updated: 8/31/2025, 7:30:12 PM
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
-        if digits[-1] < 9:
-            digits[-1]+=1
-            return digits
+        #if digits[-1] < 9:
+        #    digits[-1]+=1
+        #    return digits
         for i in range(len(digits)-1, -1, -1):
-            print(i)
-            print(digits[i])
             if digits[i] == 9:
                 digits[i] = 0
             else:
