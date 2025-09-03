@@ -1,4 +1,4 @@
-# Last updated: 9/3/2025, 11:08:56 AM
+# Last updated: 9/3/2025, 11:09:08 AM
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
         total_duration = 0
