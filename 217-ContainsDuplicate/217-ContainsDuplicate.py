@@ -1,4 +1,4 @@
-# Last updated: 10/26/2026, 7:37:00 PM
+# Last updated: 10/26/2026, 7:39:08 PM
 1class Solution:
 2    def containsDuplicate(self, nums: list[int]) -> bool:
 3        """nums.sort()
@@ -23,11 +23,15 @@
 22                    return True
 23        return False
 24        """
-25
+25        """
 26        my_set = set()
 27        for i in nums:
 28            if i in my_set:
 29                return True
 30            else:
 31                my_set.add(i)
-32        return False
+32        return False"""
+33
+34        my_set = set(nums)
+35
+36        return True if len(my_set) < len(nums) else False
