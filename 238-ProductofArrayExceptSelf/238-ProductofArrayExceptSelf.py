@@ -1,21 +1,20 @@
-# Last updated: 10/30/2026, 1:18:13 AM
+# Last updated: 10/30/2026, 1:18:53 AM
 1class Solution:
 2    def productExceptSelf(self, nums: list[int]) -> list[int]:
-3        prefix = [1]
-4        suffix = [1]
-5        prod = 1
-6        length = len(nums) - 1
-7        for v in range(length):
-8            prod = prod * nums[v]
-9            prefix.append(prod)
-10        prod = 1
-11        numsr = nums.copy()
-12        numsr.reverse()
-13        for v in range(length):
-14            prod = prod * numsr[v]
+3        n = len(nums)
+4        prefix = [1]
+5        suffix = [1]
+6
+7        prod = 1
+8        for i in range(n - 1):
+9            prod *= nums[i]
+10            prefix.append(prod)
+11
+12        prod = 1
+13        for i in range(n - 1, 0, -1):
+14            prod *= nums[i]
 15            suffix.append(prod)
-16        result = []
-17        suffix.reverse() 
-18        for i in range(len(nums)):
-19            result.append(prefix[i] * suffix[i])
-20        return result
+16
+17        suffix.reverse()
+18
+19        return [prefix[i] * suffix[i] for i in range(n)]
