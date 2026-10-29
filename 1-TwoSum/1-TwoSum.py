@@ -1,12 +1,17 @@
-# Last updated: 8/30/2025, 8:21:51 PM
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hash_map = {}
-        for i in range(len(nums)):
-            hash_map[nums[i]] = i
-        for i in range(len(nums)):
-            complement = target - nums[i]
-            if complement in hash_map and hash_map[complement] != i:
-                return [i, hash_map[complement]]
-        # If no valid pair is found, return an empty list
-        return []
+# Last updated: 10/29/2026, 11:47:48 PM
+1class Solution:
+2    def twoSum(self, nums: list[int], target: int) -> list[int]:
+3        """index_map = {num: i for i, num in enumerate(nums)}
+4        for ind, i in enumerate(nums):
+5            leftover = target - i
+6            if leftover in index_map and ind != index_map[leftover]:
+7                return [ind, index_map[leftover]]"""
+8        index_map = {}
+9
+10        for i, num in enumerate(nums):
+11            leftover = target - num
+12
+13            if leftover in index_map:
+14                return [index_map[leftover], i]
+15
+16            index_map[num] = i
